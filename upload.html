@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Upload | ZIDIOConnect</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="login-container">
+    <h2>Upload Excel File</h2>
+
+    <form>
+      <label>Select Excel File (.xls or .xlsx)</label>
+      <input type="file" accept=".xls,.xlsx" required>
+
+      <label>Select X-Axis Column</label>
+      <select>
+        <option>-- Select X-Axis --</option>
+      </select>
+
+      <label>Select Y-Axis Column</label>
+      <select>
+        <option>-- Select Y-Axis --</option>
+      </select>
+
+      <label>Select Chart Type</label>
+      <select>
+        <option>Bar Chart</option>
+        <option>Line Chart</option>
+        <option>Pie Chart</option>
+      </select>
+
+      <button type="submit">Generate Chart</button>
+    </form>
+  </div>
+
+</body>
+</html>
