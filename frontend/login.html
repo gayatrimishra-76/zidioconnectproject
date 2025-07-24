@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <h2>User Login</h2>
+    <form id="loginForm">
+      <input type="text" name="username" placeholder="Username" id="loginUsername" required />
+      <input type="password" name="password" placeholder="Password" id="loginPassword" required />
+      <button type="submit">Login</button>
+    </form>
+    <p>New user? <a href="register.html">Register here</a></p>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('loginForm');
+      if (form) {
+        form.addEventListener('submit', async function (e) {
+          e.preventDefault();
+
+          const formData = {
+            username: document.getElementById('loginUsername').value,
+            password: document.getElementById('loginPassword').value
+          };
+
+          const res = await fetch('http://localhost:8080/api/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify(formData)
+          });
+
+          const data = await res.text();
+          const lowerData = data.toLowerCase();
+
+          if (lowerData.includes("admin")) {
+            window.location.href = "admin.html";
+          } else if (lowerData.includes("student")) {
+            window.location.href = "student.html";
+          } else if (lowerData.includes("recruiter")) {
+            window.location.href = "recruiter.html";
+          } else {
+            alert("Unrecognized role. Please contact support.");
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

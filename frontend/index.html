@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div class="form-container">
+    <h2>Login</h2>
+    <form id="loginForm">
+      <input type="text" name="username" placeholder="Username" required /><br/>
+      <input type="password" name="password" placeholder="Password" required /><br/>
+      <button type="submit">Login</button>
+      <p>Not registered? <a href="register.html">Create an account</a></p>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('loginForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      const formData = {
+        username: this.username.value,
+        password: this.password.value
+      };
+
+      try {
+        const res = await fetch('http://localhost:8080/api/login', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(formData)
+        });
+
+        const data = await res.text();
+        alert(data);  // Optional: shows message like "Login success — Role: admin"
+        const lowerData = data.toLowerCase();
+
+if (lowerData.includes("admin")) {
+  window.location.href = "admin.html";
+} else if (lowerData.includes("student")) {
+  window.location.href = "student.html";
+} else if (lowerData.includes("recruiter")) {
+  window.location.href = "recruiter.html";
+} else {
+  alert("Unrecognized role. Please contact support.");
+}
+
+      } catch (error) {
+        console.error("Login error:", error);
+        alert("Login failed. Please try again.");
+      }
+    });
+  </script>
+</body>
+</html>

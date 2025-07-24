@@ -1,0 +1,7 @@
+D:\ZidioConnectAuth\backend\src\main\java\com\zidio\auth\controller\AuthController.java
+D:\ZidioConnectAuth\backend\src\main\java\com\zidio\auth\dto\LoginDTO.java
+D:\ZidioConnectAuth\backend\src\main\java\com\zidio\auth\dto\UserDTO.java
+D:\ZidioConnectAuth\backend\src\main\java\com\zidio\auth\model\User.java
+D:\ZidioConnectAuth\backend\src\main\java\com\zidio\auth\repository\UserRepository.java
+D:\ZidioConnectAuth\backend\src\main\java\com\zidio\auth\service\UserService.java
+D:\ZidioConnectAuth\backend\src\main\java\com\zidio\auth\ZidioConnectAuthApplication.java

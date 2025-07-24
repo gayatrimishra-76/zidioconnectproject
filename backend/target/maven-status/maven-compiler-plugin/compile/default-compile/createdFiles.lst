@@ -1,0 +1,7 @@
+com\zidio\auth\service\UserService.class
+com\zidio\auth\dto\UserDTO.class
+com\zidio\auth\model\User.class
+com\zidio\auth\repository\UserRepository.class
+com\zidio\auth\dto\LoginDTO.class
+com\zidio\auth\controller\AuthController.class
+com\zidio\auth\ZidioConnectAuthApplication.class
